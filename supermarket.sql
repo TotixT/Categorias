@@ -135,11 +135,11 @@ DROP TABLE `productos`;
 CREATE TABLE `productos` (
   `Productos_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Categoria_ID` int NOT NULL,
+  `Proveedor_ID` int NOT NULL,
+  `Productos_Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Precio_Unitario` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Stock` int NOT NULL,
   `UnidadesPedidas` int NOT NULL,
-  `Proveedor_ID` int NOT NULL,
-  `Productos_Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Descontinuado` VARCHAR(10) NOT NULL,
   FOREIGN KEY (`Categoria_ID`) REFERENCES `categoria`(`Categoria_ID`),
   FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
