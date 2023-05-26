@@ -107,11 +107,8 @@ CREATE TABLE `facturas` (
   FOREIGN KEY (`Clientes_ID`) REFERENCES `clientes`(`Clientes_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `facturasDetalle`
---
+INSERT INTO `facturas`(`Facturas_ID`, `Empleados_ID`, `Clientes_ID`, `Fecha`) VALUES (1,1,1,'2023-05-06');
+----------------------------------------------------------------------
 DROP TABLE `facturasDetalle`;
 CREATE TABLE `facturasDetalle` (
   `Facturas_ID` int NOT NULL,
@@ -122,15 +119,12 @@ CREATE TABLE `facturasDetalle` (
   FOREIGN KEY (`Productos_ID`) REFERENCES `productos`(`Productos_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
-
+INSERT INTO `facturasdetalle`(`Facturas_ID`, `Productos_ID`, `Cantidad`, `PrecioVenta`) VALUES (1,1,150,'$70.000');
+-----------------------------------------------------------------------------
 -- SELECT `facturasDetalle`.`Productos_ID`, `productos`.`Productos_Nombre`
 -- FROM `facturasDetalle`
 -- INNER JOIN `productos` ON `facturasDetalle`.`Productos_ID` = `productos`.`Productos_ID`;
-
---
--- Estructura de tabla para la tabla `productos`
---
+------------------------------------------------------------------------------
 DROP TABLE `productos`;
 CREATE TABLE `productos` (
   `Productos_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -145,11 +139,8 @@ CREATE TABLE `productos` (
   FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedor`
---
+INSERT INTO `productos`(`Productos_ID`, `Categoria_ID`, `Proveedor_ID`, `Productos_Nombre`, `Precio_Unitario`, `Stock`, `UnidadesPedidas`, `Descontinuado`) VALUES (2,2,1,'Metal_Gear','$50.000',300,200,'No');
+------------------------------------------------------------------------------
 DROP TABLE `proveedor`;
 CREATE TABLE `proveedor` (
   `Proveedor_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -158,95 +149,43 @@ CREATE TABLE `proveedor` (
   `Ciudad` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
--- Volcado de datos para la tabla `proveedor`
---
-
 INSERT INTO `proveedor` (`Proveedor_ID`, `Proveedor_Nombre`, `Telefono`, `Ciudad`) VALUES
 (1, 'Kevin Santiago Lopez Cordoba', 3227571273, 'Bucaramanga, Santander'),
 (2, 'Carlos David Florez', 123456789, 'Piedecuesta, Santander');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria`
---
+----------------------------------------------------------------------------
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`Categoria_ID`);
 
---
--- Indices de la tabla `clientes`
---
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`Clientes_ID`);
 
---
--- Indices de la tabla `empleados`
---
 ALTER TABLE `empleados`
   ADD PRIMARY KEY (`Empleados_ID`);
 
---
--- Indices de la tabla `facturas`
---
 ALTER TABLE `facturas`
   ADD PRIMARY KEY (`Facturas_ID`);
 
---
--- Indices de la tabla `productos`
---
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`Productos_ID`);
 
---
--- Indices de la tabla `proveedor`
---
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`Proveedor_ID`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `categoria`
---
 ALTER TABLE `categoria`
   MODIFY `Categoria_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
---
--- AUTO_INCREMENT de la tabla `clientes`
---
 ALTER TABLE `clientes`
   MODIFY `Clientes_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT de la tabla `empleados`
---
 ALTER TABLE `empleados`
   MODIFY `Empleados_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT de la tabla `facturas`
---
 ALTER TABLE `facturas`
   MODIFY `Facturas_ID` int NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de la tabla `productos`
---
 ALTER TABLE `productos`
   MODIFY `Productos_ID` int NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de la tabla `proveedor`
---
 ALTER TABLE `proveedor`
   MODIFY `Proveedor_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
