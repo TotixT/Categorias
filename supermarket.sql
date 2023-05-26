@@ -26,11 +26,14 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `categoria`
 --
+DROP DATABASE supermarket;
+CREATE DATABASE supermarket;
 
+USE supermarket;
 
-
+DROP TABLE `categoria`;
 CREATE TABLE `categoria` (
-  `Categoria_ID` int NOT NULL,
+  `Categoria_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Categoria_Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Descripcion` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Imagen` mediumblob
@@ -51,9 +54,9 @@ INSERT INTO `categoria` (`Categoria_ID`, `Categoria_Nombre`, `Descripcion`, `Ima
 --
 -- Estructura de tabla para la tabla `clientes`
 --
-
+DROP TABLE `clientes`;
 CREATE TABLE `clientes` (
-  `Clientes_ID` int NOT NULL,
+  `Clientes_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Celular` bigint NOT NULL,
   `Compañia` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -71,9 +74,9 @@ INSERT INTO `clientes` (`Clientes_ID`, `Celular`, `Compañia`) VALUES
 --
 -- Estructura de tabla para la tabla `empleados`
 --
-
+DROP TABLE `empleados`;
 CREATE TABLE `empleados` (
-  `Empleados_ID` int NOT NULL,
+  `Empleados_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Celular` bigint NOT NULL,
   `Direccion` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -94,11 +97,9 @@ INSERT INTO `empleados` (`Empleados_ID`, `Nombre`, `Celular`, `Direccion`, `Imag
 --
 -- Estructura de tabla para la tabla `facturas`
 --
-
-DROP TABLE `supermarket`.`facturas`;
-
+DROP TABLE `facturas`;
 CREATE TABLE `facturas` (
-  `Facturas_ID` int NOT NULL,
+  `Facturas_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Empleados_ID` int NOT NULL,
   `Clientes_ID` int NOT NULL,
   `Fecha` date NOT NULL,
@@ -111,29 +112,26 @@ CREATE TABLE `facturas` (
 --
 -- Estructura de tabla para la tabla `facturasDetalle`
 --
-
-DROP TABLE `supermarket`.`facturasDetalle`;
-
+DROP TABLE `facturasDetalle`;
 CREATE TABLE `facturasDetalle` (
   `Facturas_ID` int NOT NULL,
   `Productos_ID` int NOT NULL,
   `Cantidad` int NOT NULL,
-  `PrecioVenta` int NOT NULL,
+  `PrecioVenta` VARCHAR(60) NOT NULL,
   FOREIGN KEY (`Facturas_ID`) REFERENCES `facturas`(`Facturas_ID`),
   FOREIGN KEY (`Productos_ID`) REFERENCES `productos`(`Productos_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 
-SELECT `facturasDetalle`.`Productos_ID`, `productos`.`Productos_Nombre`
-FROM `facturasDetalle`
-INNER JOIN `productos` ON `facturasDetalle`.`Productos_ID` = `productos`.`Productos_ID`;
+
+-- SELECT `facturasDetalle`.`Productos_ID`, `productos`.`Productos_Nombre`
+-- FROM `facturasDetalle`
+-- INNER JOIN `productos` ON `facturasDetalle`.`Productos_ID` = `productos`.`Productos_ID`;
 
 --
 -- Estructura de tabla para la tabla `productos`
 --
-
-DROP TABLE `supermarket`.`productos`;
-
+DROP TABLE `productos`;
 CREATE TABLE `productos` (
   `Productos_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Categoria_ID` int NOT NULL,
@@ -142,19 +140,22 @@ CREATE TABLE `productos` (
   `UnidadesPedidas` int NOT NULL,
   `Proveedor_ID` int NOT NULL,
   `Productos_Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Descontinuado` tinyint(1) NOT NULL,
+  `Descontinuado` VARCHAR(10) NOT NULL,
   FOREIGN KEY (`Categoria_ID`) REFERENCES `categoria`(`Categoria_ID`),
   FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--FOREIGN KEY (`Categoria_ID`) REFERENCES `categoria`(`Categoria_ID`),
+--FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `proveedor`
 --
-
+DROP TABLE `proveedor`;
 CREATE TABLE `proveedor` (
-  `Proveedor_ID` int NOT NULL,
+  `Proveedor_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Proveedor_Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Telefono` bigint NOT NULL,
   `Ciudad` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL
