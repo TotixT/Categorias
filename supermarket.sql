@@ -145,9 +145,6 @@ CREATE TABLE `productos` (
   FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---FOREIGN KEY (`Categoria_ID`) REFERENCES `categoria`(`Categoria_ID`),
---FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
-
 -- --------------------------------------------------------
 
 --
