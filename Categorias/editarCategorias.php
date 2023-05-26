@@ -14,6 +14,9 @@
         $data->update();
         echo "<script> alert('Los Datos fueron Actualizados Exitosamente'); document.location='categorias.php' </script>";
     }
+
+    $imagenPath = "../images/"; // Ruta de la carpeta de imágenes
+    $imagenes = scandir($imagenPath); // Obtener la lista de imágenes
 ?>
 
 <!DOCTYPE html>
@@ -87,14 +90,11 @@
 
               <div class="mb-1 col-11">
                 <label for="imagenesCategoria" class="form-label">Imagen</label>
-                <input 
-                  type="text"
-                  id="imagenesCategoria"
-                  name="imagenesCategoria"
-                  class="form-control"
-                  value="<?php echo $val["Imagen"] ?>"
-
-                />
+                <select id="imagenesCategoria" name="imagenesCategoria" class="form-control">
+                  <?php foreach ($imagenes as $imagen): ?>
+                    <option value="<?php echo $imagen; ?>" <?php echo ($val['imagen'] == $imagen) ? 'selected' : ''; ?>><?php echo $imagen; ?></option>
+                  <?php endforeach; ?>
+                </select>
               </div>
 
 

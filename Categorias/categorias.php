@@ -2,6 +2,12 @@
   require_once("categoria.php");
   $data = new Categoria();
   $all = $data->selectAll();
+
+
+  $imagenPath = "../images/"; // Ruta de la carpeta de imágenes
+  $imagenes = scandir($imagenPath); // Obtener la lista de imágenes
+
+
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +82,7 @@
               <td><?php echo $val['Categoria_ID'] ?></td>
               <td><?php echo $val['Categoria_Nombre'] ?></td>
               <td><?php echo $val['Descripcion'] ?></td>
-              <td><?php echo $val['Imagen'] ?></td>
+              <td><img src="<?php echo $imagenPath . $val['Imagen']; ?>" width="70px" alt=""></td>
               <td>  
                 <a class="btn btn-danger" href="borrarCategorias.php?Categoria_ID=<?=$val['Categoria_ID']?>&req=delete">Borrar</a>
               </td>
@@ -137,14 +143,12 @@
               </div>
 
               <div class="mb-1 col-12">
-                <label for="logros" class="form-label">Imagen</label>
-                <input 
-                  type="text"
-                  id="imagen"
-                  name="imagen"
-                  class="form-control"  
-                 
-                />
+                <label for="imagen" class="form-label">Imagen</label>
+                <select id="imagen" name="imagen" class="form-control">
+                  <?php foreach ($imagenes as $imagen): ?>
+                    <option value="<?php echo $imagen; ?>" <?php echo ($val['imagen'] == $imagen) ? 'selected' : ''; ?>><?php echo $imagen; ?></option>
+                  <?php endforeach; ?>
+                </select>
               </div>
 
               <div class=" col-12 m-2">
