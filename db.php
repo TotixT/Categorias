@@ -9,7 +9,7 @@ if(!defined("DB_HOST")){
 }
 
 if(!defined("DB_NAME")){
-    define("DB_NAME","facturacion");
+    define("DB_NAME","supermarket");
 }
 
 if(!defined("DB_USER")){
