@@ -139,7 +139,7 @@ CREATE TABLE `productos` (
   FOREIGN KEY (`Proveedor_ID`) REFERENCES `proveedor`(`Proveedor_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO `productos`(`Productos_ID`, `Categoria_ID`, `Proveedor_ID`, `Productos_Nombre`, `Precio_Unitario`, `Stock`, `UnidadesPedidas`, `Descontinuado`) VALUES (2,2,1,'Metal_Gear','$50.000',300,200,'No');
+INSERT INTO `productos`(`Productos_ID`, `Categoria_ID`, `Proveedor_ID`, `Productos_Nombre`, `Precio_Unitario`, `Stock`, `UnidadesPedidas`, `Descontinuado`) VALUES (1,2,1,'Metal_Gear','$50.000',300,200,'No');
 ------------------------------------------------------------------------------
 DROP TABLE `proveedor`;
 CREATE TABLE `proveedor` (
