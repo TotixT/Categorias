@@ -1,5 +1,5 @@
 <?php
-    require_once("config.php");
+    require_once("categoria.php");
     $record = new Categoria();
     if(isset($_GET['Categoria_ID']) && isset($_GET['req']) ){
         if($_GET['req'] == "delete"){

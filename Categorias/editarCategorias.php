@@ -1,5 +1,5 @@
 <?php
-    require_once("config.php");
+    require_once("categoria.php");
     $data = new Categoria();
     $Categoria_ID = $_GET['Categoria_ID'];
     $data->setCategoria_ID($Categoria_ID);
@@ -32,7 +32,7 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 
-  <link rel="stylesheet" type="text/css" href="css/estudiantes.css">
+  <link rel="stylesheet" type="text/css" href="../css/estudiantes.css">
 
 </head>
 
@@ -43,7 +43,7 @@
 
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Campus Skiller.</h3>
-        <img src="images/Diseño sin título.png" alt="" class="imagenPerfil">
+        <img src="../images/Diseño sin título.png" alt="" class="imagenPerfil">
         <h3 >Santiago Lopez</h3>
       </div>
       <div class="menus">

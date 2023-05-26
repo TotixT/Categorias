@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['guardar'])){
-        require_once("config.php");
+        require_once("categoria.php");
         $categoria = new Categoria();
         $categoria-> setCategoria_Nombre($_POST['nombresCategoria']);
         $categoria-> setDescripcion($_POST['descripcion']);

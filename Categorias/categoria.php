@@ -1,5 +1,5 @@
 <?php
-    require_once("db.php");
+    require_once("../db.php");
     class Categoria{
         private $Categoria_ID;
         private $Categoria_Nombre;
