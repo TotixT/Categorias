@@ -41,14 +41,39 @@
         <h3>Santiago Lopez</h3>
       </div>
       <div class="menus">
-        <a href="/Home/home.php" style="display: flex;gap:2px;">
+        <!-- <a href="/Home/home.php" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;">Home</h3>
-        </a>
+        </a> -->
         <a href="categorias.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Categorias</h3>
         </a>
+        <a href="../Clientes/clientes.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Clientes</h3>
+        </a>
+        <a href="../Empleados/empleados.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Empleados</h3>
+        </a>
+        <a href="../Facturas/facturas.php.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Facturas</h3>
+        </a>
+        <a href="../Detalles/detalles.php.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Detalle de Facturas</h3>
+        </a>
+        <a href="../Productos/productos.php.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Productos</h3>
+        </a>
+        <a href="../Proveedores/proveedores.php.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Proveedores</h3>
+        </a>
+        
        
 
 
@@ -146,7 +171,7 @@
                 <label for="imagen" class="form-label">Imagen</label>
                 <select id="imagen" name="imagen" class="form-control">
                   <?php foreach ($imagenes as $imagen): ?>
-                    <option value="<?php echo $imagen; ?>" <?php echo ($val['imagen'] == $imagen) ? 'selected' : ''; ?>><?php echo $imagen; ?></option>
+                    <option value="<?php echo $imagen; ?>" <?php echo ($val['Imagen'] == $imagen) ? 'selected' : ''; ?>><?php echo $imagen; ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
