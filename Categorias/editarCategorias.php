@@ -92,7 +92,7 @@
                 <label for="imagenesCategoria" class="form-label">Imagen</label>
                 <select id="imagenesCategoria" name="imagenesCategoria" class="form-control">
                   <?php foreach ($imagenes as $imagen): ?>
-                    <option value="<?php echo $imagen; ?>" <?php echo ($val['imagen'] == $imagen) ? 'selected' : ''; ?>><?php echo $imagen; ?></option>
+                    <option value="<?php echo $imagen; ?>" <?php echo ($val['Imagen'] == $imagen) ? 'selected' : ''; ?>><?php echo $imagen; ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
