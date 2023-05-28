@@ -27,7 +27,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actualizar Estudiante</title>
+  <title>Actualizar Empleados</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
@@ -67,19 +67,19 @@
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Empleados</h3>
         </a>
-        <a href="../Facturas/facturas.php.php" style="display: flex;gap:1px;">
+        <a href="../Facturas/facturas.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Facturas</h3>
         </a>
-        <a href="../Detalles/detalles.php.php" style="display: flex;gap:1px;">
+        <a href="../Detalles/detalles.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Detalle de Facturas</h3>
         </a>
-        <a href="../Productos/productos.php.php" style="display: flex;gap:1px;">
+        <a href="../Productos/productos.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Productos</h3>
         </a>
-        <a href="../Proveedores/proveedores.php.php" style="display: flex;gap:1px;">
+        <a href="../Proveedores/proveedores.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Proveedores</h3>
         </a>
@@ -104,7 +104,7 @@
               <div class="mb-1 col-11">
                 <label for="celularEmpleado" class="form-label">Celular</label>
                 <input 
-                  type="text"
+                  type="number"
                   id="celularEmpleado"
                   name="celularEmpleado"
                   class="form-control"
