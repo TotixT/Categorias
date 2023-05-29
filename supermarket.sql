@@ -58,7 +58,7 @@ DROP TABLE `clientes`;
 CREATE TABLE `clientes` (
   `Clientes_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Celular` bigint NOT NULL,
-  `Compañia` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL
+  `Compania` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
