@@ -126,6 +126,26 @@
             }
         }
 
+        public function selectNombres2(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT empleados.Nombre FROM empleados;");
+                $stm->execute();
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
+        }
+
+        public function selectCompanias2(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT clientes.Compania FROM clientes;");
+                $stm->execute();
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
+        }
+
         // Update Data - Update
 
         public function update(){
@@ -133,7 +153,7 @@
                 $stm = $this->dbCnx->prepare("UPDATE facturas 
                 INNER JOIN empleados ON facturas.Empleados_ID = empleados.Empleados_ID
                 INNER JOIN clientes ON facturas.Clientes_ID = clientes.Clientes_ID
-                SET empleados.Nombre=?,clientes.Compania=?,facturas.Fecha=?
+                SET facturas.Empleados_ID=?,facturas.Clientes_ID=?,facturas.Fecha=?
                 WHERE Facturas_ID=?;");
                 $stm->execute([$this->Empleados_ID,$this->Clientes_ID,$this->Fecha,$this->Facturas_ID]);
                 return $stm->fetchAll();

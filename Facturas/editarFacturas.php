@@ -4,7 +4,13 @@
     $Facturas_ID = $_GET['Facturas_ID'];
     $data->setFacturas_ID($Facturas_ID);
     $record = $data->selectOne();
+    $nombres2 = $data->selectNombres();
+    $companias2 = $data->selectCompanias();
     $val = $record[0];
+    $val2 = $nombres2;
+    $val3 = $companias2;
+    print_r($val);
+    print_r($nombres2);
 
     if(isset($_POST['editar'])){
         $data->setEmpleados_ID($_POST['idsEmpleado']);
@@ -87,26 +93,22 @@
       <form class="col d-flex flex-wrap" action=""  method="post">
               <div class="mb-1 col-11">
                 <label for="idsEmpleado" class="form-label">ID Empleado</label>
-                <input 
-                  type="text"
-                  id="idsEmpleado"
-                  name="idsEmpleado"
-                  class="form-control"
-                  value="<?php echo $val["Nombre"]?>"
-
-                />
+                <select id="idsEmpleado" name="idsEmpleado" class="form-control">
+                <option value="">Seleccione la ID del Empleado</option>
+                          <?php foreach ($nombres2 as $key=> $val2){ ?>
+                            <option value="<?php echo $val2["Empleados_ID"]?>"><?php echo $val2["Empleados_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-11">
                 <label for="idsCliente" class="form-label">ID Cliente</label>
-                <input 
-                  type="text"
-                  id="idsCliente"
-                  name="idsCliente"
-                  class="form-control"
-                  value="<?php echo $val["Compania"] ?>"
-
-                />
+                <select id="idsCliente" name="idsCliente" class="form-control">
+                  <option value="">Seleccione la ID del Cliente</option>
+                          <?php foreach ($companias2 as $key=> $val3){ ?>
+                            <option value="<?php echo $val3["Clientes_ID"]?>"><?php echo $val3["Clientes_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-11">
