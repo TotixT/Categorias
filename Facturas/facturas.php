@@ -2,7 +2,11 @@
   require_once("factura.php");
   $data = new Factura();
   $all = $data->selectAll();
-print_r($all);
+  $nombres = $data->selectNombres();
+  $companias = $data->selectCompanias();
+  //print_r($all);
+  //print_r($nombres);
+  //print_r($companias);
 ?>
 
 <!DOCTYPE html>
@@ -144,22 +148,20 @@ print_r($all);
             <form class="col d-flex flex-wrap" action="registrarFacturas.php" method="post">
               <div class="mb-1 col-12">
                 <label for="idEmpleado" class="form-label">Id del Empleado</label>
-                <input 
-                  type="number"
-                  id="idEmpleado"
-                  name="idEmpleado"
-                  class="form-control"  
-                />
+                <select id="idEmpleado" name="idEmpleado" class="form-control">
+                          <?php foreach ($nombres as $key=> $val){ ?>
+                            <option value="<?php echo $val["Empleados_ID"]?>"><?php echo $val["Empleados_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-12">
                 <label for="idCliente" class="form-label">Id del Cliente</label>
-                <input 
-                  type="number"
-                  id="idCliente"
-                  name="idCliente"
-                  class="form-control"  
-                />
+                <select id="idCliente" name="idCliente" class="form-control">
+                          <?php foreach ($companias as $key=> $val){ ?>
+                            <option value="<?php echo $val["Clientes_ID"]?>"><?php echo $val["Clientes_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-12">

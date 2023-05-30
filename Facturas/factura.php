@@ -77,6 +77,26 @@
             }
         }
 
+        public function selectNombres(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT empleados.Empleados_ID FROM empleados;");
+                $stm->execute();
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
+        }
+
+        public function selectCompanias(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT clientes.Clientes_ID FROM clientes;");
+                $stm->execute();
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
+        }
+
         // Delete Data - Delete
 
         public function deleteData(){
