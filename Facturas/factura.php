@@ -126,26 +126,6 @@
             }
         }
 
-        public function selectNombres2(){
-            try {
-                $stm = $this->dbCnx->prepare("SELECT empleados.Nombre FROM empleados;");
-                $stm->execute();
-                return $stm->fetchAll();
-            } catch (Exception $e) {
-                $e -> getMessage();
-            }
-        }
-
-        public function selectCompanias2(){
-            try {
-                $stm = $this->dbCnx->prepare("SELECT clientes.Compania FROM clientes;");
-                $stm->execute();
-                return $stm->fetchAll();
-            } catch (Exception $e) {
-                $e -> getMessage();
-            }
-        }
-
         // Update Data - Update
 
         public function update(){
