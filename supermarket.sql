@@ -149,6 +149,17 @@ INSERT INTO `proveedor` (`Proveedor_ID`, `Proveedor_Nombre`, `Telefono`, `Ciudad
 (1, 'Kevin Santiago Lopez Cordoba', 3227571273, 'Bucaramanga, Santander'),
 (2, 'Carlos David Florez', 123456789, 'Piedecuesta, Santander');
 ----------------------------------------------------------------------------
+
+DROP TABLE `users`;
+CREATE TABLE `users`(
+  `Users_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `Empleados_ID` int NOT NULL,
+  `Email` VARCHAR(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `Username` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `password` VARCHAR(72) COLLATE utf8mb4_spanish_ci NOT NULL,
+  FOREIGN KEY (`Empleados_ID`) REFERENCES `empleados`(`Empleados_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`Categoria_ID`);
 
