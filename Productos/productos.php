@@ -2,7 +2,11 @@
   require_once("producto.php");
   $data = new Producto();
   $all = $data->selectAll();
-print_r($all);
+  $categorias = $data->selectCategorias();
+  $proveedores = $data->selectProveedores();
+  //print_r($all);
+  //print_r($categorias);
+  //print_r($proveedores);
 ?>
 
 <!DOCTYPE html>
@@ -152,22 +156,20 @@ print_r($all);
             <form class="col d-flex flex-wrap" action="registrarProductos.php" method="post">
               <div class="mb-1 col-12">
                 <label for="idCategoria" class="form-label">Id de la Categoria</label>
-                <input 
-                  type="number"
-                  id="idCategoria"
-                  name="idCategoria"
-                  class="form-control"  
-                />
+                <select id="idCategoria" name="idCategoria" class="form-control">
+                          <?php foreach ($categorias as $key=> $val){ ?>
+                            <option value="<?php echo $val["Categoria_ID"]?>"><?php echo $val["Categoria_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-12">
                 <label for="idProveedor" class="form-label">Id del Proveedor</label>
-                <input 
-                  type="number"
-                  id="idProveedor"
-                  name="idProveedor"
-                  class="form-control"  
-                />
+                <select id="idProveedor" name="idProveedor" class="form-control">
+                          <?php foreach ($proveedores as $key=> $val){ ?>
+                            <option value="<?php echo $val["Proveedor_ID"]?>"><?php echo $val["Proveedor_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-12">

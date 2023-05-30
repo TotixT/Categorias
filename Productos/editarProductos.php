@@ -4,7 +4,11 @@
     $Productos_ID = $_GET['Productos_ID'];
     $data->setProductos_ID($Productos_ID);
     $record = $data->selectOne();
+    $categorias2 = $data->selectCategorias();
+    $proveedores2 = $data->selectProveedores();
     $val = $record[0];
+    $val2 = $categorias2;
+    $val3 = $proveedores2;
 
     if(isset($_POST['editar'])){
         $data->setCategoria_ID($_POST['idsCategoria']);
@@ -91,24 +95,22 @@
       <form class="col d-flex flex-wrap" action=""  method="post">
               <div class="mb-1 col-11">
                 <label for="idsCategoria" class="form-label">ID de la Categoria</label>
-                <input 
-                  type="text"
-                  id="idsCategoria"
-                  name="idsCategoria"
-                  class="form-control"
-                  value="<?php echo $val["Categoria_Nombre"]?>"
-                />
+                <select id="idsCategoria" name="idsCategoria" class="form-control">
+                  <option value="">Seleccione la ID del Categoria</option>
+                          <?php foreach ($categorias2 as $key=> $val2){ ?>
+                            <option value="<?php echo $val2["Categoria_ID"]?>"><?php echo $val2["Categoria_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-11">
                 <label for="idsProveedor" class="form-label">ID del Proveedor</label>
-                <input 
-                  type="text"
-                  id="idsProveedor"
-                  name="idsProveedor"
-                  class="form-control"
-                  value="<?php echo $val["Proveedor_Nombre"] ?>"
-                />
+                <select id="idsProveedor" name="idsProveedor" class="form-control">
+                  <option value="">Seleccione la ID del Proveedor</option>
+                          <?php foreach ($proveedores2 as $key=> $val3){ ?>
+                            <option value="<?php echo $val3["Proveedor_ID"]?>"><?php echo $val3["Proveedor_ID"]?></option>
+                          <?php } ?>
+                        </select>
               </div>
 
               <div class="mb-1 col-11">
