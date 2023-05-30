@@ -121,6 +121,26 @@
             }
         }
 
+        public function selectCategorias(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT categoria.Categoria_ID FROM categoria;");
+                $stm->execute();
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
+        }
+
+        public function selectProveedores(){
+            try {
+                $stm = $this->dbCnx->prepare("SELECT proveedor.Proveedor_ID FROM proveedor;");
+                $stm->execute();
+                return $stm->fetchAll();
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
+        }
+
         // Delete Data - Delete
 
         public function deleteData(){
@@ -157,7 +177,7 @@
                 $stm = $this->dbCnx->prepare("UPDATE productos 
                 INNER JOIN categoria ON productos.Categoria_ID = categoria.Categoria_ID
                 INNER JOIN proveedor ON productos.Proveedor_ID = proveedor.Proveedor_ID
-                SET categoria.Categoria_Nombre=?,proveedor.Proveedor_Nombre=?,productos.Productos_Nombre=?,productos.Precio_Unitario=?,productos.Stock=?,productos.UnidadesPedidas=?,productos.Descontinuado=?
+                SET productos.Categoria_ID=?,productos.Proveedor_ID=?,productos.Productos_Nombre=?,productos.Precio_Unitario=?,productos.Stock=?,productos.UnidadesPedidas=?,productos.Descontinuado=?
                 WHERE Productos_ID=?;");
                 $stm->execute([$this->Categoria_ID,$this->Proveedor_ID,$this->Productos_Nombre,$this->Precio_Unitario,$this->Stock,$this->UnidadesPedidas,$this->Descontinuado,$this->Productos_ID]);
                 return $stm->fetchAll();
