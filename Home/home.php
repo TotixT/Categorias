@@ -33,7 +33,7 @@
         <h3><?php echo $_SESSION['Username']?></h3>
       </div>
       <div class="menus">
-        <a href="home.php" style="display: flex;gap:2px;">
+        <a href="../Home/home.php" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;font-weight: 800;">Home</h3>
         </a>
@@ -65,11 +65,6 @@
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Proveedores</h3>
         </a>
-      
-        </a>
-        <a href="/login/login.php" style="display: flex;gap:2px;color: brown;">
-          <i class="bi bi-x-square"></i>
-          <h3 style="margin: 0px;font-weight: 800;">salir</h3>
         </a>
 
 
@@ -86,6 +81,10 @@
     
     <div class="parte-derecho ">
       <p>Cargando...</p> 
+      <a href="../login/login.php" style="display: flex;gap:2px;color: brown;">
+          <i class="bi bi-x-square"></i>
+          <h4 style="margin: 0px;font-weight: 800;">Cerrar Sesion</h3>
+        </a>
     </div>
 
 
