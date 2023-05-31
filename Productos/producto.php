@@ -123,7 +123,7 @@
 
         public function selectCategorias(){
             try {
-                $stm = $this->dbCnx->prepare("SELECT categoria.Categoria_ID FROM categoria;");
+                $stm = $this->dbCnx->prepare("SELECT Categoria_ID,Categoria_Nombre  FROM categoria;");
                 $stm->execute();
                 return $stm->fetchAll();
             } catch (Exception $e) {
@@ -133,7 +133,7 @@
 
         public function selectProveedores(){
             try {
-                $stm = $this->dbCnx->prepare("SELECT proveedor.Proveedor_ID FROM proveedor;");
+                $stm = $this->dbCnx->prepare("SELECT Proveedor_ID,Proveedor_Nombre FROM proveedor;");
                 $stm->execute();
                 return $stm->fetchAll();
             } catch (Exception $e) {

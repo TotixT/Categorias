@@ -7,8 +7,6 @@
     $categorias2 = $data->selectCategorias();
     $proveedores2 = $data->selectProveedores();
     $val = $record[0];
-    $val2 = $categorias2;
-    $val3 = $proveedores2;
 
     if(isset($_POST['editar'])){
         $data->setCategoria_ID($_POST['idsCategoria']);
@@ -97,8 +95,8 @@
                 <label for="idsCategoria" class="form-label">ID de la Categoria</label>
                 <select id="idsCategoria" name="idsCategoria" class="form-control">
                   <option value="">Seleccione la ID del Categoria</option>
-                          <?php foreach ($categorias2 as $key=> $val2){ ?>
-                            <option value="<?php echo $val2["Categoria_ID"]?>"><?php echo $val2["Categoria_ID"]?></option>
+                          <?php foreach ($categorias2 as $key=> $categorias2){ ?>
+                            <option value="<?php echo $categorias2["Categoria_ID"]?>"><?php echo $categorias2["Categoria_Nombre"]?></option>
                           <?php } ?>
                         </select>
               </div>
@@ -107,8 +105,8 @@
                 <label for="idsProveedor" class="form-label">ID del Proveedor</label>
                 <select id="idsProveedor" name="idsProveedor" class="form-control">
                   <option value="">Seleccione la ID del Proveedor</option>
-                          <?php foreach ($proveedores2 as $key=> $val3){ ?>
-                            <option value="<?php echo $val3["Proveedor_ID"]?>"><?php echo $val3["Proveedor_ID"]?></option>
+                          <?php foreach ($proveedores2 as $key=> $proveedores2){ ?>
+                            <option value="<?php echo $proveedores2["Proveedor_ID"]?>"><?php echo $proveedores2["Proveedor_Nombre"]?></option>
                           <?php } ?>
                         </select>
               </div>
@@ -177,7 +175,7 @@
       </div>
     </div>
 <div class="parte-derecho " id="detalles">
-      <h3>Detalle Proveedores</h3>
+      <h3>Detalle Productos</h3>
       <p>Cargando...</p>
        <!-- ///////Generando la grafica -->
 

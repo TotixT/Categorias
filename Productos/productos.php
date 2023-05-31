@@ -158,7 +158,7 @@
                 <label for="idCategoria" class="form-label">Id de la Categoria</label>
                 <select id="idCategoria" name="idCategoria" class="form-control">
                           <?php foreach ($categorias as $key=> $val){ ?>
-                            <option value="<?php echo $val["Categoria_ID"]?>"><?php echo $val["Categoria_ID"]?></option>
+                            <option value="<?php echo $val["Categoria_ID"]?>"><?php echo $val["Categoria_Nombre"]?></option>
                           <?php } ?>
                         </select>
               </div>
@@ -167,7 +167,7 @@
                 <label for="idProveedor" class="form-label">Id del Proveedor</label>
                 <select id="idProveedor" name="idProveedor" class="form-control">
                           <?php foreach ($proveedores as $key=> $val){ ?>
-                            <option value="<?php echo $val["Proveedor_ID"]?>"><?php echo $val["Proveedor_ID"]?></option>
+                            <option value="<?php echo $val["Proveedor_ID"]?>"><?php echo $val["Proveedor_Nombre"]?></option>
                           <?php } ?>
                         </select>
               </div>
