@@ -1,4 +1,6 @@
 <?php
+  require_once("../Login/LoginUser.php");
+  session_start();
   require_once("cliente.php");
   $data = new Cliente();
   $all = $data->selectAll();
@@ -33,7 +35,7 @@
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Clientes.</h3>
         <img src="../images/Diseño sin título.png" alt="" class="imagenPerfil">
-        <h3>Santiago Lopez</h3>
+        <h3><?php echo $_SESSION['Username']?></h3>
       </div>
       <div class="menus">
         <!-- <a href="/Home/home.php" style="display: flex;gap:2px;">
