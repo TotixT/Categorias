@@ -85,7 +85,7 @@ body{
     justify-content: center;
     
    
-    gap: 40px;
+    gap: 30px;
   }
 
   .menus h3{
@@ -97,6 +97,7 @@ body{
    .menus a:hover{
     background-color:rgb(74, 74, 97);
     padding: 5px;
+    padding-right: 135px;
     color: #fff9f9;
     margin: 5px;
     font-weight: 800;
