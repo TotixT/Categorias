@@ -149,8 +149,15 @@
               <div class="mb-1 col-12">
                 <label for="idEmpleado" class="form-label">Id del Empleado</label>
                 <select id="idEmpleado" name="idEmpleado" class="form-control">
-                          <?php foreach ($nombres as $key=> $val){ ?>
-                            <option value="<?php echo $val["Empleados_ID"]?>"><?php echo $val["Empleados_ID"]?></option>
+                  <!-- Metodo Cristian Luna = De la funcion que contiene ambas tablas de la DB, cuando se llaman
+                            las divide y parte, seccionandolas en dos variables distintas, cada una conteniendo un dato especifico. -->
+                          <?php 
+                          foreach ($nombres as $nombre){ 
+                            $nombreId = $nombre['Empleados_ID'];  
+                            $nombreNombre = $nombre['Nombre'];
+                            ?>
+                            <option value="<?php echo intval($nombreId) ?>"><?php echo $nombreNombre?></option>
+                            
                           <?php } ?>
                         </select>
               </div>
@@ -158,8 +165,11 @@
               <div class="mb-1 col-12">
                 <label for="idCliente" class="form-label">Id del Cliente</label>
                 <select id="idCliente" name="idCliente" class="form-control">
-                          <?php foreach ($companias as $key=> $val){ ?>
-                            <option value="<?php echo $val["Clientes_ID"]?>"><?php echo $val["Clientes_ID"]?></option>
+                  <!-- Metodo Santiago Lopez Garcia = De la funcion que contiene ambas tablas de la DB, cuando se llaman 
+                          directamente se instancian sobre la funcion base que viene y en esa misma variable, 
+                              se llama la tabla requerida-->
+                <?php foreach ($companias as $key=> $companias){ ?>
+                            <option value="<?php echo $companias["Clientes_ID"]?>"><?php echo $companias["Compania"]?></option>
                           <?php } ?>
                         </select>
               </div>
