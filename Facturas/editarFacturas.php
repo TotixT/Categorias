@@ -7,8 +7,6 @@
     $nombres2 = $data->selectNombres();
     $companias2 = $data->selectCompanias();
     $val = $record[0];
-    $val2 = $nombres2;
-    $val3 = $companias2;
     print_r($val);
     print_r($nombres2);
 
