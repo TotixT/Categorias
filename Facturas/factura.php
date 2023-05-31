@@ -79,7 +79,7 @@
 
         public function selectNombres(){
             try {
-                $stm = $this->dbCnx->prepare("SELECT empleados.Empleados_ID FROM empleados;");
+                $stm = $this->dbCnx->prepare("SELECT Empleados_ID,Nombre FROM empleados;");
                 $stm->execute();
                 return $stm->fetchAll();
             } catch (Exception $e) {
@@ -89,7 +89,7 @@
 
         public function selectCompanias(){
             try {
-                $stm = $this->dbCnx->prepare("SELECT clientes.Clientes_ID FROM clientes;");
+                $stm = $this->dbCnx->prepare("SELECT Clientes_ID, Compania FROM clientes;");
                 $stm->execute();
                 return $stm->fetchAll();
             } catch (Exception $e) {

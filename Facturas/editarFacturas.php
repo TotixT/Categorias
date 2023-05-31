@@ -95,8 +95,12 @@
                 <label for="idsEmpleado" class="form-label">ID Empleado</label>
                 <select id="idsEmpleado" name="idsEmpleado" class="form-control">
                 <option value="">Seleccione la ID del Empleado</option>
-                          <?php foreach ($nombres2 as $key=> $val2){ ?>
-                            <option value="<?php echo $val2["Empleados_ID"]?>"><?php echo $val2["Empleados_ID"]?></option>
+                <!-- Metodo Cristian Luna -->
+                          <?php foreach ($nombres2 as $nombress2){ 
+                            $nombresId = $nombress2['Empleados_ID'];  
+                            $nombresNombre = $nombress2['Nombre'];
+                            ?>
+                            <option value="<?php echo $nombresId?>"><?php echo $nombresNombre?></option>
                           <?php } ?>
                         </select>
               </div>
@@ -105,8 +109,9 @@
                 <label for="idsCliente" class="form-label">ID Cliente</label>
                 <select id="idsCliente" name="idsCliente" class="form-control">
                   <option value="">Seleccione la ID del Cliente</option>
-                          <?php foreach ($companias2 as $key=> $val3){ ?>
-                            <option value="<?php echo $val3["Clientes_ID"]?>"><?php echo $val3["Clientes_ID"]?></option>
+                  <!-- Metodo Santiago Lopez Garcia -->
+                          <?php foreach ($companias2 as $key=> $companias2){ ?>
+                            <option value="<?php echo $companias2["Clientes_ID"]?>"><?php echo $companias2["Compania"]?></option>
                           <?php } ?>
                         </select>
               </div>
