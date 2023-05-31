@@ -30,21 +30,21 @@
             <div  class="d-flex justify-content-center align-items-center" >
                 <form action="loguearse.php" method="POST">
                     <div class="mb-3">
-                    <label for="emailLogin" class="form-label">Email</label>
+                    <label for="email" class="form-label">Email</label>
                         <input 
                           type="text"
-                          id="emailLogin"
-                          name="emailLogin"
+                          id="email"
+                          name="email"
                           class="form-control"  
                         />
                       <div id="emailHelp" class="form-text">Mañana es una excusa maravillosa, ¿No crees?</div>
                     </div>
                     <div class="mb-3">
-                    <label for="passwordLogin" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password</label>
                         <input 
-                          type="passwordLogin"
-                          id="passwordLogin"
-                          name="passwordLogin"
+                          type="password"
+                          id="password"
+                          name="password"
                           class="form-control"  
                         />
                     </div>
@@ -73,7 +73,7 @@
                     <h1 class="m-5" style="font-weight: 800;">REGISTRAR USUARIO</h1>
                     <div class="mb-3">
                     <div class="mb-3">
-                        <label for="usernameRegister" class="form-label">Id Del Empleado</label>
+                        <label for="idEmpleados" class="form-label">Id Del Empleado</label>
                         <select id="idEmpleados" name="idEmpleados" class="form-control">
                           <?php foreach ($all as $key=> $val){ ?>
                             <option value="<?php echo $val["Empleados_ID"]?>"><?php echo $val["Empleados_ID"]?></option>
@@ -81,28 +81,28 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="usernameRegister" class="form-label">User Name</label>
+                        <label for="username" class="form-label">User Name</label>
                         <input 
                           type="text"
-                          id="usernameRegister"
-                          name="usernameRegister"
+                          id="username"
+                          name="username"
                           class="form-control"  
                         />
                     </div>
-                    <label for="emailRegister" class="form-label">EmailRegister</label>
+                    <label for="email" class="form-label">EmailRegister</label>
                         <input 
                           type="text"
-                          id="emailRegister"
-                          name="emailRegister"
+                          id="email"
+                          name="email"
                           class="form-control"  
                         />
                     </div>
                     <div class="mb-3">
-                    <label for="passwordRegister" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password</label>
                         <input 
                           type="password"
-                          id="passwordRegister"
-                          name="passwordRegister"
+                          id="password"
+                          name="password"
                           class="form-control"  
                         />
                     </div>

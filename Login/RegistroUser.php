@@ -1,6 +1,7 @@
 <?php
 
 require_once("../db.php");
+require_once("LoginUser.php");
 
 class RegistroUser{
     private $Users_ID;
@@ -64,10 +65,31 @@ class RegistroUser{
         return $this->password;
     }
 
+    public function checkUser($Email){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM users WHERE Email = '$Email'");
+            $stm->execute();
+            if($stm->fetchColumn()){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            $e -> getMessage();
+        }
+    }
+
     public function insertData(){
         try {
             $stm = $this->dbCnx->prepare("INSERT INTO users (Empleados_ID, Email, Username, password) values (?,?,?,?)");
             $stm->execute([$this->Empleados_ID,$this->Email,$this->Username,md5($this->password)]);
+
+            $login = new LoginUser();
+            $login->setEmail($_POST['emailLogin']);
+            $login->setPassword($_POST['passwordLogin']);
+
+            $success = $login->login();
+
         } catch (Exception $e) {
             $e -> getMessage();
         }
