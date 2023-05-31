@@ -42,10 +42,10 @@
         <h3><?php echo $_SESSION['Username']?></h3>
       </div>
       <div class="menus">
-        <!-- <a href="/Home/home.php" style="display: flex;gap:2px;">
+        <a href="/Home/home.php" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
-          <h3 style="margin: 0px;">Home</h3>
-        </a> -->
+          <h3 style="margin: 0px;font-weight: 800;">Home</h3>
+        </a>
         <a href="../Categorias/categorias.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Categorias</h3>
@@ -138,6 +138,10 @@
     <div class="parte-derecho " id="detalles">
       <h3>Detalle Productos</h3>
       <p>Cargando...</p>
+      <a href="../login/login.php" style="display: flex;gap:2px;color: brown;">
+          <i class="bi bi-x-square"></i>
+          <h4 style="margin: 0px;font-weight: 800;">Cerrar Sesion</h3>
+        </a>
        <!-- ///////Generando la grafica -->
 
     </div>

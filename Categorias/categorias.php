@@ -131,6 +131,10 @@
     <div class="parte-derecho " id="detalles">
       <h3>Detalle Categorias</h3>
       <p>Cargando...</p>
+      <a href="../login/login.php" style="display: flex;gap:2px;color: brown;">
+          <i class="bi bi-x-square"></i>
+          <h4 style="margin: 0px;font-weight: 800;">Cerrar Sesion</h3>
+        </a>
        <!-- ///////Generando la grafica -->
 
     </div>
