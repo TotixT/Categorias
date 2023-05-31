@@ -2,7 +2,7 @@
   require_once("RegistroUser.php");
   $data = new RegistroUser();
   $all = $data->selectAll();
-  print_r($all);
+  //print_r($all);
 ?>
 
 <!DOCTYPE html>

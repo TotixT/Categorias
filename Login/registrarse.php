@@ -16,7 +16,7 @@ error_reporting(E_ALL);
             echo "<script> alert('Usuario existente!'); document.location='loginRegister.php' </script>";
         } else {
             $RegistroUser-> insertData();
-        echo "<script> alert('User creado Satisfactoriamente Satisfactoriamente'); document.location='../Home/home.php' </script>";
+        echo "<script> alert('User creado Satisfactoriamente'); document.location='../Home/home.php' </script>";
         }
         
 
