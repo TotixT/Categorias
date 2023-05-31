@@ -85,8 +85,10 @@ class RegistroUser{
             $stm->execute([$this->Empleados_ID,$this->Email,$this->Username,md5($this->password)]);
 
             $login = new LoginUser();
-            $login->setEmail($_POST['emailLogin']);
-            $login->setPassword($_POST['passwordLogin']);
+            $login->setEmail($_POST['email']);
+            $login->setPassword($_POST['password']);
+            
+
 
             $success = $login->login();
 
@@ -97,7 +99,7 @@ class RegistroUser{
 
     public function selectAll(){
         try {
-            $stm = $this->dbCnx->prepare("SELECT empleados.Empleados_ID FROM empleados;");
+            $stm = $this->dbCnx->prepare("SELECT Empleados_ID,Nombre FROM empleados;");
             $stm->execute();
             return $stm->fetchAll();
         } catch (Exception $e) {

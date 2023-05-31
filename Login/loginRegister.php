@@ -76,7 +76,7 @@
                         <label for="idEmpleados" class="form-label">Id Del Empleado</label>
                         <select id="idEmpleados" name="idEmpleados" class="form-control">
                           <?php foreach ($all as $key=> $val){ ?>
-                            <option value="<?php echo $val["Empleados_ID"]?>"><?php echo $val["Empleados_ID"]?></option>
+                            <option value="<?php echo $val["Empleados_ID"]?>"><?php echo $val["Nombre"]?></option>
                           <?php } ?>
                         </select>
                     </div>
