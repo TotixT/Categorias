@@ -1,4 +1,6 @@
 <?php
+  require_once("../Login/LoginUser.php");
+  session_start();
   require_once("categoria.php");
   $data = new Categoria();
   $all = $data->selectAll();
@@ -38,13 +40,13 @@
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Categorias.</h3>
         <img src="../images/Diseño sin título.png" alt="" class="imagenPerfil">
-        <h3>Santiago Lopez</h3>
+        <h3><?php echo $_SESSION['Username']?></h3>
       </div>
       <div class="menus">
-        <!-- <a href="/Home/home.php" style="display: flex;gap:2px;">
+        <a href="../Home/home.php" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
-          <h3 style="margin: 0px;">Home</h3>
-        </a> -->
+          <h3 style="margin: 0px;font-weight: 800;">Home</h3>
+        </a>
         <a href="../Categorias/categorias.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Categorias</h3>
