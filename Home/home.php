@@ -37,15 +37,39 @@
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;font-weight: 800;">Home</h3>
         </a>
-        <a href="../Estudiantes/estudiantes.php" style="display: flex;gap:2px;">
+        <a href="../Categorias/categorias.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
-          <h3 style="margin: 0px;">Estudiantes</h3>
+          <h3 style="margin: 0px;font-weight: 800;">Categorias</h3>
+        </a>
+        <a href="../Clientes/clientes.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Clientes</h3>
+        </a>
+        <a href="../Empleados/empleados.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Empleados</h3>
+        </a>
+        <a href="../Facturas/facturas.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Facturas</h3>
+        </a>
+        <a href="../Detalles/detalles.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Detalle de Facturas</h3>
+        </a>
+        <a href="../Productos/productos.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Productos</h3>
+        </a>
+        <a href="../Proveedores/proveedores.php" style="display: flex;gap:1px;">
+          <i class="bi bi-people"></i>
+          <h3 style="margin: 0px;font-weight: 800;">Proveedores</h3>
         </a>
       
         </a>
         <a href="/login/login.php" style="display: flex;gap:2px;color: brown;">
           <i class="bi bi-x-square"></i>
-          <h3 style="margin: 0px;">salir</h3>
+          <h3 style="margin: 0px;font-weight: 800;">salir</h3>
         </a>
 
 
