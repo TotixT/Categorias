@@ -10,8 +10,10 @@
 
         $login = $credenciales->login();
 
-        if($login){
+        if($login && $_SESSION['Tipo_Usuario'] == 'Administrativo'){
             header('Location:../Home/home.php');
+        } else if ($login && $_SESSION['Tipo_Usuario'] == 'Estandar'){
+            header('Location:../Home2/home.php');
         } else {
             echo "<script> alert('Password o Email o Tipo Usuario Invalidos!'); document.location='loginRegister.php' </script>";
         }
