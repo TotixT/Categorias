@@ -1,7 +1,6 @@
 <?php
   require_once("../Login/LoginUser.php");
   session_start();
-
   if(isset($_POST['LogOut'])){
     unset($_SESSION['users_ID']);
     unset($_SESSION['Username']);
@@ -10,7 +9,17 @@
   if(!$_SESSION['Username']){
     header('Location:../Login/loginRegister.php');
   }
+  require_once("empleado.php");
+  $data = new Empleado();
+  $all = $data->selectAll();
+
+
+  $imagenPath = "../images/"; // Ruta de la carpeta de imágenes
+  $imagenes = scandir($imagenPath); // Obtener la lista de imágenes
+
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +27,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home </title>
+  <title>Empleados</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
@@ -27,7 +36,7 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 
-  <link rel="stylesheet" type="text/css" href="home.css">
+  <link rel="stylesheet" type="text/css" href="../css/estudiantes.css">
 
 </head>
 
@@ -37,8 +46,8 @@
     <div class="parte-izquierda">
 
       <div class="perfil">
-        <h3 style="margin-bottom: 2rem;">Camp Skiller.</h3>
-        <img src="images/Diseño sin título.png" alt="" class="imagenPerfil">
+        <h3 style="margin-bottom: 2rem;">Empleados.</h3>
+        <img src="../images/Diseño sin título.png" alt="" class="imagenPerfil">
         <h3><?php echo $_SESSION['Username']?></h3>
       </div>
       <div class="menus">
@@ -74,52 +83,66 @@
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Proveedores</h3>
         </a>
-        </a>
+        
+       
 
 
       </div>
     </div>
 
     <div class="parte-media">
-        <h2 class="m-2">Promedio</h2>
-      <div class="menuTabla contenedor2">
-        <div id="charts1" class="charts"> </div>
+      <div style="display: flex; justify-content: space-between;">
+        <h2>Empleado</h2>
       </div>
+      <div class="menuTabla contenedor2">
+        <table class="table table-custom ">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">NOMBRE EMPLEADO</th>
+              <th scope="col">CELULAR</th>
+              <th scope="col">DIRECCION</th>
+              <th scope="col">IMAGEN</th>
+            </tr>
+          </thead>
+          <tbody class="" id="tabla">
+
+            <!-- ///////Llenado DInamico desde la Base de Datos -->
+            <?php
+            foreach($all as $key=> $val){
+            ?>
+            <tr>
+              <td><?php echo $val['Empleados_ID'] ?></td>
+              <td><?php echo $val['Nombre'] ?></td>
+              <td><?php echo $val['Celular'] ?></td>
+              <td><?php echo $val['Direccion'] ?></td>
+              <td><img src="<?php echo $imagenPath . $val['Imagen']; ?>" width="70px" alt=""></td>
+            </tr>
+          </tbody>
+        <?php
+            }
+            ?>
+        </table>
+
+      </div>
+
+
     </div>
 
-    
-    <div class="parte-derecho ">
-      <p>Cargando...</p> 
+    <div class="parte-derecho " id="detalles">
+      <h3>Detalle Empleados</h3>
+      <p>Cargando...</p>
       <form method="POST">
         <input class="btn btn-danger" type="submit" name="LogOut" id="LogOut" value="Cerrar Sesion">
       </form>
+       <!-- ///////Generando la grafica -->
+
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
 
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-
-  <!-- APACHE Echars -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
-
-
-  <script src="home.js"></script>
 
 </body>
 
