@@ -1,6 +1,14 @@
 <?php
   require_once("../Login/LoginUser.php");
   session_start();
+  if(isset($_POST['LogOut'])){
+    unset($_SESSION['users_ID']);
+    unset($_SESSION['Username']);
+    header('Location:../Login/loginRegister.php');
+  }
+  if(!$_SESSION['Username']){
+    header('Location:../Login/loginRegister.php');
+  }
   require_once("categoria.php");
   $data = new Categoria();
   $all = $data->selectAll();
@@ -131,10 +139,9 @@
     <div class="parte-derecho " id="detalles">
       <h3>Detalle Categorias</h3>
       <p>Cargando...</p>
-      <a href="../login/login.php" style="display: flex;gap:2px;color: brown;">
-          <i class="bi bi-x-square"></i>
-          <h4 style="margin: 0px;font-weight: 800;">Cerrar Sesion</h3>
-        </a>
+      <form method="POST">
+        <input class="btn btn-danger" type="submit" name="LogOut" id="LogOut" value="Cerrar Sesion">
+      </form>
        <!-- ///////Generando la grafica -->
 
     </div>
