@@ -17,7 +17,13 @@ error_reporting(E_ALL);
             echo "<script> alert('Usuario existente!'); document.location='loginRegister.php' </script>";
         } else {
             $RegistroUser-> insertData();
-        echo "<script> alert('User creado Satisfactoriamente Satisfactoriamente'); document.location='../Home/home.php' </script>";
+            if($RegistroUser && $_SESSION['Tipo_Usuario'] == 'Administrativo'){
+                echo "<script> alert('User creado Satisfactoriamente Satisfactoriamente'); document.location='../Home/home.php' </script>";
+            } else if($RegistroUser && $_SESSION['Tipo_Usuario'] == 'Estandar'){
+                echo "<script> alert('User creado Satisfactoriamente Satisfactoriamente'); document.location='../Home2/home.php' </script>";
+            }
+            
+                // echo "<script> alert('User creado Satisfactoriamente Satisfactoriamente'); document.location='../Home/home.php' </script>";
         }
         
 
