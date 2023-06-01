@@ -1,4 +1,5 @@
 <?php
+    //DetalleFactura Editar no funciona
     require_once("detalle.php");
     $data = new Detalle();
     $PrecioVenta = $_GET['PrecioVenta'];
