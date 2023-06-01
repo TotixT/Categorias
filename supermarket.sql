@@ -107,6 +107,7 @@ INSERT INTO `facturas`(`Facturas_ID`, `Empleados_ID`, `Clientes_ID`, `Fecha`) VA
 ----------------------------------------------------------------------
 DROP TABLE `facturasDetalle`;
 CREATE TABLE `facturasDetalle` (
+  `Detalles_ID` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Facturas_ID` int NOT NULL,
   `Productos_ID` int NOT NULL,
   `Cantidad` int NOT NULL,
