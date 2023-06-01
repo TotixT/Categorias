@@ -9,14 +9,16 @@ class RegistroUser{
     private $Email;
     private $Username;
     private $password;
+    private $Tipo_Usuario;
     protected $dbCnx;
 
-    public function __construct($Users_ID= 0, $Empleados_ID = 0, $Email="", $Username="", $password=""){
+    public function __construct($Users_ID= 0, $Empleados_ID = 0, $Email="", $Username="", $password="",$Tipo_Usuario=""){
         $this->Users_ID = $Users_ID;
         $this->Empleados_ID = $Empleados_ID;
         $this->Email = $Email;
         $this->Username = $Username;
         $this->password = $password;
+        $this->Tipo_Usuario = $Tipo_Usuario;
         $this->dbCnx = new PDO(DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
     }
 
@@ -65,6 +67,15 @@ class RegistroUser{
         return $this->password;
     }
 
+    // Tipo_Usuario
+
+    public function setTipo_Usuario($Tipo_Usuario){
+        $this->Tipo_Usuario = $Tipo_Usuario;
+    }
+    public function getTipo_Usuario(){
+        return $this->Tipo_Usuario;
+    }
+
     public function checkUser($Email){
         try {
             $stm = $this->dbCnx->prepare("SELECT * FROM users WHERE Email = '$Email'");
@@ -81,13 +92,13 @@ class RegistroUser{
 
     public function insertData(){
         try {
-            $stm = $this->dbCnx->prepare("INSERT INTO users (Empleados_ID, Email, Username, password) values (?,?,?,?)");
-            $stm->execute([$this->Empleados_ID,$this->Email,$this->Username,md5($this->password)]);
+            $stm = $this->dbCnx->prepare("INSERT INTO users (Empleados_ID, Email, Username, password, Tipo_Usuario) values (?,?,?,?,?)");
+            $stm->execute([$this->Empleados_ID,$this->Email,$this->Username,md5($this->password),$this->Tipo_Usuario]);
 
             $login = new LoginUser();
             $login->setEmail($_POST['email']);
             $login->setPassword($_POST['password']);
-            
+            $login->setTipo_Usuario($_POST['tipoUsuario']);
 
 
             $success = $login->login();

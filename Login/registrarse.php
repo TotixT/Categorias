@@ -12,6 +12,7 @@ error_reporting(E_ALL);
         $RegistroUser-> setEmail($_POST['email']);
         $RegistroUser-> setUsername($_POST['username']);
         $RegistroUser-> setPassword($_POST['password']);
+        $RegistroUser-> setTipo_Usuario($_POST['tipoUsuario']);
         if($RegistroUser->checkUser($_POST['email'])){
             echo "<script> alert('Usuario existente!'); document.location='loginRegister.php' </script>";
         } else {

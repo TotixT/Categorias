@@ -48,6 +48,14 @@
                           class="form-control"  
                         />
                     </div>
+                    <div class="mb-3">
+                        <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+                        <select id="tipoUsuario" name="tipoUsuario" class="form-control">
+                            <option value="">Seleccione el Tipo de Usuario</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Estandar">Estandar</option>
+                        </select>
+                    </div>
                  
                     <input type="submit" class="btn btn-primary" value="Loguearse" name="loguearse"/>
                   </form>
@@ -78,6 +86,14 @@
                           <?php foreach ($all as $key=> $val){ ?>
                             <option value="<?php echo $val["Empleados_ID"]?>"><?php echo $val["Nombre"]?></option>
                           <?php } ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+                        <select id="tipoUsuario" name="tipoUsuario" class="form-control">
+                            <option value="">Seleccione el Tipo de Usuario</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Estandar">Estandar</option>
                         </select>
                     </div>
                     <div class="mb-3">
