@@ -1,18 +1,29 @@
 <?php
     require_once("../db.php");
     class Detalle{
+        private $Detalles_ID;
         private $Facturas_ID;
         private $Productos_ID;
         private $Cantidad;
         private $PrecioVenta;
         protected $dbCnx;
 
-        public function __construct($Facturas_ID=0,$Productos_ID=0,$Cantidad=0,$PrecioVenta=""){
+        public function __construct($Detalles_ID=0,$Facturas_ID=0,$Productos_ID=0,$Cantidad=0,$PrecioVenta=""){
+            $this->Detalles_ID = $Detalles_ID;
             $this->Facturas_ID = $Facturas_ID;
             $this->Productos_ID = $Productos_ID;
             $this->Cantidad = $Cantidad;
             $this->PrecioVenta = $PrecioVenta;
             $this->dbCnx = new PDO(DB_TYPE . ":host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        }
+
+        // Detalles ID
+
+        public function setDetalles_ID($Detalles_ID){
+            $this->Detalles_ID = $Detalles_ID;
+        }
+        public function getDetalles_ID(){
+            $this->Detalles_ID;
         }
 
         // Facturas ID
@@ -66,7 +77,7 @@
 
         public function selectAll(){
                 try {
-                 $stm = $this->dbCnx->prepare("SELECT facturas.Facturas_ID, productos.Productos_Nombre, facturasdetalle.Cantidad, facturasdetalle.PrecioVenta
+                 $stm = $this->dbCnx->prepare("SELECT facturasdetalle.Detalles_ID,facturas.Facturas_ID, productos.Productos_Nombre, facturasdetalle.Cantidad, facturasdetalle.PrecioVenta
                  FROM facturasdetalle
                  INNER JOIN facturas ON facturasdetalle.Facturas_ID = facturas.Facturas_ID
                  INNER JOIN productos ON facturasdetalle.Productos_ID = productos.Productos_ID;");
@@ -101,8 +112,8 @@
 
         public function deleteData(){
             try {
-                $stm = $this->dbCnx->prepare("DELETE FROM facturasdetalle WHERE PrecioVenta=?;");
-                $stm->execute([$this->PrecioVenta]);
+                $stm = $this->dbCnx->prepare("DELETE FROM facturasdetalle WHERE Detalles_ID=?;");
+                $stm->execute([$this->Detalles_ID]);
                 return $stm->fetchAll();
                 echo "<script> alert('Borrado Exitosamente'); document.location='detalles.php'</script>";
             } catch (Exception $e) {
@@ -115,12 +126,12 @@
 
         public function selectOne(){
             try {
-                $stm = $this->dbCnx->prepare("SELECT facturas.Facturas_ID, productos.Productos_Nombre, facturasdetalle.Cantidad, facturasdetalle.PrecioVenta
+                $stm = $this->dbCnx->prepare("SELECT facturasdetalle.Detalles_ID,facturas.Facturas_ID, productos.Productos_Nombre, facturasdetalle.Cantidad, facturasdetalle.PrecioVenta
                 FROM facturasdetalle
                 INNER JOIN facturas ON facturasdetalle.Facturas_ID = facturas.Facturas_ID
                 INNER JOIN productos ON facturasdetalle.Productos_ID = productos.Productos_ID
-                WHERE facturasdetalle.PrecioVenta = ?");
-                $stm->execute([$this->PrecioVenta]);
+                WHERE facturasdetalle.Detalles_ID = ?");
+                $stm->execute([$this->Detalles_ID]);
                 return $stm->fetchAll();
             } catch (Exception $e) {
                 $e -> getMessage();
@@ -135,8 +146,8 @@
                 INNER JOIN facturas ON facturasdetalle.Facturas_ID = facturas.Facturas_ID
                 INNER JOIN productos ON facturasdetalle.Productos_ID = productos.Productos_ID
                 SET facturasdetalle.Facturas_ID=?,facturasdetalle.Productos_ID=?,facturasdetalle.Cantidad=?,facturasdetalle.PrecioVenta=?
-                WHERE facturasdetalle.PrecioVenta=?;");
-                $stm->execute([$this->Cantidad,$this->Facturas_ID,$this->Productos_ID,$this->PrecioVenta]);
+                WHERE facturasdetalle.Detalles_ID=?;");
+                $stm->execute([$this->Facturas_ID,$this->Productos_ID,$this->Cantidad,$this->PrecioVenta,$this->Detalles_ID]);
                 return $stm->fetchAll();
             } catch (Exception $e) {
                 $e -> getMessage();

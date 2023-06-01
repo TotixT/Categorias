@@ -110,10 +110,10 @@
               <td><?php echo $val['Cantidad'] ?></td>
               <td><?php echo $val['PrecioVenta'] ?></td>
               <td>  
-                <a class="btn btn-danger" href="borrarDetalles.php?PrecioVenta=<?=$val['PrecioVenta']?>&req=delete">Borrar</a>
+                <a class="btn btn-danger" href="borrarDetalles.php?Detalles_ID=<?=$val['Detalles_ID']?>&req=delete">Borrar</a>
               </td>
               <td>
-                <a class="btn btn-warning" href="editarDetalles.php?PrecioVenta=<?=$val['PrecioVenta']?>">Editar</a>
+                <a class="btn btn-warning" href="editarDetalles.php?Detalles_ID=<?=$val['Detalles_ID']?>">Editar</a>
               </td>
             </tr>
           </tbody>

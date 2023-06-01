@@ -2,8 +2,8 @@
     //DetalleFactura Editar no funciona
     require_once("detalle.php");
     $data = new Detalle();
-    $PrecioVenta = $_GET['PrecioVenta'];
-    $data->setPrecioVenta($PrecioVenta);
+    $Detalles_ID = $_GET['Detalles_ID'];
+    $data->setDetalles_ID($Detalles_ID);
     $record = $data->selectOne();
     $facturas2 = $data->selectFacturas();
     $productos2 = $data->selectProductos();
