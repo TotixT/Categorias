@@ -160,6 +160,7 @@ CREATE TABLE `users`(
   `Email` VARCHAR(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Username` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `password` VARCHAR(72) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `Tipo_Usuario` VARCHAR(30) COLLATE utf8mb4_spanish_ci NOT NULL,
   FOREIGN KEY (`Empleados_ID`) REFERENCES `empleados`(`Empleados_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
