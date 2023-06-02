@@ -79,7 +79,7 @@ CREATE TABLE `empleados` (
   `Nombre` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
   `Celular` bigint NOT NULL,
   `Direccion` varchar(60) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Imagen` mediumblob NOT NULL
+  `Imagen` mediumblob NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
