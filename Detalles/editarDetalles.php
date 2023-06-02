@@ -8,7 +8,7 @@
     $facturas2 = $data->selectFacturas();
     $productos2 = $data->selectProductos();
     $val = $record[0];
-    print_r($val);
+    //print_r($val);
     //print_r($facturas2);
 
     if(isset($_POST['editar'])){

@@ -7,8 +7,8 @@
     $nombres2 = $data->selectNombres();
     $companias2 = $data->selectCompanias();
     $val = $record[0];
-    print_r($val);
-    print_r($nombres2);
+    //print_r($val);
+    //print_r($nombres2);
 
     if(isset($_POST['editar'])){
         $data->setEmpleados_ID($_POST['idsEmpleado']);
@@ -51,10 +51,10 @@
         <h3 >Santiago Lopez</h3>
       </div>
       <div class="menus">
-        <!-- <a href="home.html" style="display: flex;gap:2px;">
+        <a href="../Home/home.php" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;font-weight: 800;">Home</h3>
-        </a> -->
+        </a>
         <a href="../Categorias/categorias.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Categorias</h3>
@@ -135,7 +135,7 @@
       </div>
     </div>
 <div class="parte-derecho " id="detalles">
-      <h3>Detalle Proveedores</h3>
+      <h3>Detalle Facturas</h3>
       <p>Cargando...</p>
        <!-- ///////Generando la grafica -->
 
